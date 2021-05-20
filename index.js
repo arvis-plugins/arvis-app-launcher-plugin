@@ -1,18 +1,21 @@
-const path = require("path");
+const { getItems: getDarwinItems } = require("./darwin");
 
-const getPluginItem = (inputStr) => {
+const getPluginItem = async (inputStr) => {
   switch (process.platform) {
     case "win32":
       break;
     case "darwin":
-      break;
+      return getDarwinItems(inputStr);
     case "liunx":
       break;
+    default:
+      return [
+        {
+          title: "Not supported platform!",
+          valid: false,
+        },
+      ];
   }
-  return {
-    items,
-  };
 };
 
-// Export a function that has inputStr as a argument.
 module.exports = getPluginItem;

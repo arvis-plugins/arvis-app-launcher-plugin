@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/jopemachine/arvis-app-launcher-plugin/issues"
   },
-  "homepage": "https://github.com/jopemachine/arvis-app-launcher-plugin#readme"
+  "homepage": "https://github.com/jopemachine/arvis-app-launcher-plugin#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "lodash": "^4.17.21",
+    "plist": "^3.0.2",
+    "arvish": "~/Desktop/arvish"
+  }
 }
