@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const fse = require("fs-extra");
 const plistParser = require("plist");
+const arvish = require('arvish');
 
 const getItems = async (inputStr) => {
   const inApplicationFolder = await fse.readdir("/Applications");
@@ -12,14 +13,15 @@ const getItems = async (inputStr) => {
     appName.toLowerCase().startsWith(inputStr.toLowerCase())
   );
 
-  return {
-    items: targetApps.map((appName) => {
+  return arvish.output(
+    targetApps.map((appName) => {
       return {
         title: appName,
-        arg: `/Applications/${appName}`
+        arg: `/Applications/${appName}`,
       };
     }),
-  };
+    { print: false }
+  );
 };
 
 const cacheIcon = async () => {
