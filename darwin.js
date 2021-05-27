@@ -1,14 +1,16 @@
 const _ = require("lodash");
 const fse = require("fs-extra");
 const plistParser = require("plist");
-const arvish = require('arvish');
+const arvish = require("arvish");
+const conf = require("conf.json");
+const path = require("path");
 
 const getIcon = () => {
-  return 'icon.png';
-}
+  return "icon.png";
+};
 
 const getItems = async (inputStr) => {
-  const inApplicationFolder = await fse.readdir("/Applications");
+  const inApplicationFolder = await fse.readdir(conf.applicationFolder.darwin);
   const apps = _.filter(inApplicationFolder, (appName) =>
     appName.endsWith(".app")
   );
@@ -21,7 +23,7 @@ const getItems = async (inputStr) => {
     targetApps.map((appName) => {
       return {
         title: appName,
-        arg: `/Applications/${appName}`,
+        arg: `${conf.applicationFolder.darwin}${path.sep}${appName}`,
         icon: {
           path: `${__dirname}${sep}icons${sep}${getIcon(fileName)}`,
         },

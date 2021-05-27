@@ -1,0 +1,7 @@
+{
+    "applicationFolder": {
+        "win32": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
+        "darwin": "/Applications",
+        "linux": ""
+    }
+}
