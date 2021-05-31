@@ -1,7 +1,4 @@
-const _ = require("lodash");
-const fse = require("fs-extra");
 const plistParser = require("plist");
-const arvish = require("arvish");
 const conf = require("conf.json");
 const path = require("path");
 
@@ -19,8 +16,8 @@ const getItems = async (inputStr) => {
     appName.toLowerCase().startsWith(inputStr.toLowerCase())
   );
 
-  return arvish.output(
-    targetApps.map((appName) => {
+  return {
+    items: targetApps.map((appName) => {
       return {
         title: appName,
         arg: `${conf.applicationFolder.darwin}${path.sep}${appName}`,
@@ -29,8 +26,7 @@ const getItems = async (inputStr) => {
         },
       };
     }),
-    { print: false }
-  );
+  };
 };
 
 // * Need method to import icns to png format

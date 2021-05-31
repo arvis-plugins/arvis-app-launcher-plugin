@@ -1,9 +1,10 @@
 const { getItems: getDarwinItems } = require("./darwin");
+const { getItems: getWindowsItems } = require("./win32");
 
 const getPluginItem = async (inputStr) => {
   switch (process.platform) {
     case "win32":
-      break;
+      return getWindowsItems(inputStr);
     case "darwin":
       return getDarwinItems(inputStr);
     case "liunx":
