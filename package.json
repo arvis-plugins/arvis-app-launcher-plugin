@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-app-launcher-plugin#readme",
   "dependencies": {
+    "arvish": "~/Desktop/arvish",
     "fast-glob": "^3.2.5",
     "fs-extra": "^10.0.0",
     "lodash": "^4.17.21",
-    "plist": "^3.0.2"
+    "plist": "^3.0.2",
+    "string-similarity": "^4.0.4"
   }
 }
