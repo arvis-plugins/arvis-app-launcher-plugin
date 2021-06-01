@@ -1,11 +1,11 @@
-const arvish = require("arvish");
+const arvish = require("@jopemachine/arvish");
 
 if (!arvish.getConfig().has("setting")) {
   const defaultConfig = {
     applicationFolder: {
       win32: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
       darwin: "/Applications",
-      linux: "",
+      linux: "/usr/share/applications",
     },
     deep: 3,
   };

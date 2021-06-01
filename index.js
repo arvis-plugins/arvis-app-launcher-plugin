@@ -2,7 +2,7 @@ const path = require("path");
 const stringSimilarity = require("string-similarity");
 const fg = require("fast-glob");
 const os = require("os");
-const arvish = require("arvish");
+const arvish = require("@jopemachine/arvish");
 const { getIcon: getWin32Icon } = require("./win32");
 const { getIcon: getDarwinIcon } = require("./darwin");
 const { getIcon: getLinuxIcon } = require("./linux");
@@ -29,7 +29,9 @@ const getTargetPath = (inputStr) => {
     case "darwin":
       return `${conf.applicationFolder[process.platform]}${sep}*${inputStr}*`;
     case "linux":
-      return "";
+      return `${
+        conf.applicationFolder[process.platform]
+      }${sep}**${sep}*${inputStr}*`;
   }
 };
 

@@ -13,8 +13,8 @@
     "action": [
         {
             "modifiers": "normal",
-            "type": "open",
-            "target": "{query}"
+            "type": "script",
+            "script": "node open.js {query}"
         }
     ]
 }
