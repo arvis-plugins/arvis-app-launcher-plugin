@@ -34,6 +34,18 @@ const getTargetPath = (inputStr) => {
 };
 
 const getPluginItem = async (inputStr) => {
+  if (inputStr === "@config/arvis-app-launcher-plugin") {
+    return {
+      items: [
+        {
+          title: "Open config file of arvis-app-launcher-plugin",
+          subtitle: arvish.config.path,
+          arg: arvish.config.path,
+        },
+      ],
+    };
+  }
+
   return new Promise((resolve, reject) => {
     const globOpts = {
       dot: false,

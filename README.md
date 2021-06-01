@@ -1,6 +1,36 @@
 # arvis-app-launcher-plugin
 
-App launcher plugin for [Arvis](https://github.com/jopemachine/arvis)
+Cross platform app launcher plugin for [Arvis](https://github.com/jopemachine/arvis)
+
+## Config
+
+You can edit this plugin's config.
+
+You can open the config file by typing or copy and paste `@config/arvis-app-launcher-plugin` to Arvis.
+
+### applicationFolder
+
+type: `object`
+
+Change the path you want to assign to explore.
+
+If this plugin doesn't work properly, need to check this path exists.
+
+### deep
+
+type: `number`
+
+Sets the depth to explore
+
+In macos, it is fixed by 1 to avoid to explore in App file.
+
+### concurrency
+
+type: `number | undefined`
+
+default value: `os.cpus().length`
+
+Specifies the number of cpu to use to explore.
 
 ## Icon sources
 
