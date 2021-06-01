@@ -2,6 +2,12 @@
 
 Cross platform app launcher plugin for [Arvis](https://github.com/jopemachine/arvis)
 
+## Installation
+
+```
+$ npm i -g arvis-app-launcher-plugin
+```
+
 ## Config
 
 You can edit this plugin's config.
@@ -12,6 +18,14 @@ You can open the config file by typing or copy and paste `@config/arvis-app-laun
 
 type: `object`
 
+default value: 
+
+* windows: `C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs`
+
+* macos: `/Applications`
+
+* linux: `/usr/share/applications`
+
 Change the path you want to assign to explore.
 
 If this plugin doesn't work properly, need to check this path exists.
@@ -19,6 +33,8 @@ If this plugin doesn't work properly, need to check this path exists.
 ### deep
 
 type: `number`
+
+default value: `3`
 
 Sets the depth to explore
 
