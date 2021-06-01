@@ -51,14 +51,14 @@ const getPluginItem = async ({ inputStr }) => {
 
   return new Promise((resolve, reject) => {
     const globOpts = {
-      dot: false,
-      cwd: path.parse(process.cwd()).root,
       absolute: true,
       caseSensitiveMatch: false,
       concurrency: conf.concurrency ? conf.concurrency : os.cpus().length,
-      suppressErrors: true,
+      cwd: path.parse(process.cwd()).root,
       deep: process.platform === "darwin" ? 1 : conf.deep,
+      dot: false,
       onlyFiles: process.platform === "darwin" ? false : true,
+      suppressErrors: true,
     };
 
     const getFileOrDirName = (filePath) => {
