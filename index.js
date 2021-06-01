@@ -1,11 +1,14 @@
+const path = require("path");
+const stringSimilarity = require("string-similarity");
+const fg = require("fast-glob");
+const os = require("os");
+const arvish = require("arvish");
 const { getIcon: getWin32Icon } = require("./win32");
 const { getIcon: getDarwinIcon } = require("./darwin");
 const { getIcon: getLinuxIcon } = require("./linux");
-const path = require("path");
-const stringSimilarity = require("string-similarity");
-const conf = require("./conf.json");
-const fg = require("fast-glob");
-const os = require("os");
+require("./init");
+
+const conf = arvish.config.get("setting");
 const sep = path.sep;
 
 const getIcon =
@@ -39,8 +42,8 @@ const getPluginItem = async (inputStr) => {
       caseSensitiveMatch: false,
       concurrency: conf.concurrency ? conf.concurrency : os.cpus().length,
       suppressErrors: true,
-      deep: process.platform === 'darwin' ? 1 : conf.deep,
-      onlyFiles: process.platform === 'darwin' ? false : true,
+      deep: process.platform === "darwin" ? 1 : conf.deep,
+      onlyFiles: process.platform === "darwin" ? false : true,
     };
 
     const getFileOrDirName = (filePath) => {
@@ -67,10 +70,10 @@ const getPluginItem = async (inputStr) => {
             },
             similarity: stringSimilarity.compareTwoStrings(inputStr, appName),
           };
-        })
+        });
 
         resolve({
-          items: items.sort((a, b) => a.similarity < b.similarity ? 1 : -1),
+          items: items.sort((a, b) => (a.similarity < b.similarity ? 1 : -1)),
         });
       })
       .catch((err) => {
