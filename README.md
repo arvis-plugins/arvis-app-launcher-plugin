@@ -2,6 +2,10 @@
 
 Cross platform app launcher plugin for [Arvis](https://github.com/jopemachine/arvis)
 
+Demo on mac: 
+
+![](./demo.gif)
+
 ## Installation
 
 ```
