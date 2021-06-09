@@ -3,6 +3,7 @@
     "category": "Productivity",
     "createdby": "jopemachine",
     "description": "App launcher plugin for Arvis",
+    "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
     "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "version": "0.0.1",
@@ -13,7 +14,7 @@
         {
             "modifiers": "normal",
             "type": "script",
-            "script": "node open.js {query}"
+            "script": "node open.js '{query}'"
         }
     ]
 }
