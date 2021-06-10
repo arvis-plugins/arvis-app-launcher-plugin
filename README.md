@@ -57,3 +57,7 @@ Specifies the number of cpu to use to explore.
 This plugin uses below icon sources
 
 <a target="_blank" href="https://icons8.com">Image</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+## To do
+
+- [ ] Write application icon caching logic. It depends on OS.

@@ -1,5 +1,4 @@
 const path = require("path");
-const stringSimilarity = require("string-similarity");
 const fg = require("fast-glob");
 const os = require("os");
 const arvish = require("@jopemachine/arvish");
@@ -85,12 +84,11 @@ const getPluginItem = async ({ inputStr }) => {
             icon: {
               path: `${__dirname}${sep}icons${sep}${getIcon(appName)}`,
             },
-            similarity: stringSimilarity.compareTwoStrings(inputStr, appName),
           };
         });
 
         resolve({
-          items: items.sort((a, b) => (a.similarity < b.similarity ? 1 : -1)),
+          items,
         });
       })
       .catch((err) => {
