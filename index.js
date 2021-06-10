@@ -63,12 +63,18 @@ const getPluginItem = async ({ inputStr }) => {
     };
 
     const getFileOrDirName = (filePath) => {
-      return filePath.endsWith("/")
+      const name = filePath.endsWith("/")
         ? filePath
             .substring(0, filePath.length - 1)
             .split("/")
             .pop()
         : filePath.split("/").pop();
+
+      if (name.includes(".")) {
+        return name.split(".")[0];
+      } else {
+        return name;
+      }
     };
 
     const targetPath = getTargetPath(inputStr);
