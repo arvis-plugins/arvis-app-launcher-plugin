@@ -1,16 +1,16 @@
 {
     "$schema": "some_schema_file_path",
     "category": "Productivity",
-    "createdby": "jopemachine",
+    "creator": "jopemachine",
     "description": "App launcher plugin for Arvis",
     "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
     "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "version": "0.0.1",
-    "webaddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
+    "webAddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "enabled": true,
     "main": "index.js",
-    "action": [
+    "actions": [
         {
             "modifiers": "normal",
             "type": "script",
