@@ -35,6 +35,11 @@ const getTargetPath = (inputStr) => {
 };
 
 const getPluginItem = async ({ inputStr }) => {
+  if (inputStr === "")
+    return {
+      items: [],
+    };
+
   if (
     inputStr === "@config" ||
     inputStr.startsWith("@config/arvis-app-launcher-plugin")
