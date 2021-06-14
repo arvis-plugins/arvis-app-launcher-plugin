@@ -1,7 +1,7 @@
 const path = require("path");
 const fg = require("fast-glob");
 const os = require("os");
-const arvish = require("@jopemachine/arvish");
+const arvish = require("arvish");
 const { getIcon: getWin32Icon } = require("./win32");
 const { getIcon: getDarwinIcon } = require("./darwin");
 const { getIcon: getLinuxIcon } = require("./linux");

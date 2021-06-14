@@ -1,5 +1,5 @@
 {
-    "$schema": "some_schema_file_path",
+    "$schema": "https://raw.githubusercontent.com/jopemachine/arvis-extension-validator/master/plugin-schema.json",
     "category": "Productivity",
     "creator": "jopemachine",
     "description": "App launcher plugin for Arvis",

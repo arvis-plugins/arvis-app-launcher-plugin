@@ -1,4 +1,4 @@
-const arvish = require("@jopemachine/arvish");
+const arvish = require("arvish");
 const fse = require("fs-extra");
 const open = require("open");
 const execa = require("execa");

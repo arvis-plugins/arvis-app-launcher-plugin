@@ -1,4 +1,4 @@
-const arvish = require("@jopemachine/arvish");
+const arvish = require("arvish");
 
 if (!arvish.getConfig().has("setting")) {
   const defaultConfig = {
