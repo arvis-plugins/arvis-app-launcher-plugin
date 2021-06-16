@@ -1,6 +1,6 @@
 {
   "name": "arvis-app-launcher-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "App launcher plugin for Arvis",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-app-launcher-plugin#readme",
   "dependencies": {
-    "arvish": "^0.0.3",
+    "arvish": "^0.1.3",
     "execa": "^5.0.1",
     "fast-glob": "^3.2.5",
     "fs-extra": "^10.0.0",
