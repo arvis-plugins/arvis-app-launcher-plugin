@@ -8,6 +8,7 @@ if (!arvish.getConfig().has("setting")) {
       linux: "/usr/share/applications",
     },
     deep: 3,
+    initialCaching: false,
   };
 
   arvish.getConfig().set("setting", defaultConfig);

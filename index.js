@@ -40,20 +40,27 @@ const getPluginItem = async ({ inputStr }) => {
       items: [],
     };
 
-  if (
-    inputStr === "@config" ||
-    inputStr.startsWith("@config/arvis-app-launcher-plugin")
-  ) {
-    return {
-      items: [
-        {
-          title: "Open config file of arvis-app-launcher-plugin",
-          subtitle: arvish.getConfig().path,
-          arg: arvish.getConfig().path,
-        },
-      ],
-    };
-  }
+  const configItems = [
+    {
+      command: "@config/arvis-app-launcher-plugin",
+      title: "Open config file of arvis-app-launcher-plugin",
+      subtitle: "@config/arvis-app-launcher-plugin",
+      arg: arvish.getConfig().path,
+      variables: {
+        action: "open",
+      },
+    },
+    process.platform === "darwin"
+      ? {
+          command: "@cache/arvis-app-launcher-plugin",
+          title: "Cache app icons of arvis-app-launcher-plugin",
+          subtitle: "@cache/arvis-app-launcher-plugin",
+          variables: {
+            action: "cache",
+          },
+        }
+      : undefined,
+  ];
 
   return new Promise((resolve, reject) => {
     const globOpts = {
@@ -86,17 +93,24 @@ const getPluginItem = async ({ inputStr }) => {
 
     fg(targetPath, globOpts)
       .then((targetApps) => {
-        const items = targetApps.map((appPath) => {
-          const appName = getFileOrDirName(appPath);
-          return {
-            title: appName,
-            subtitle: appPath,
-            arg: appPath,
-            icon: {
-              path: `${__dirname}${sep}icons${sep}${getIcon(appName)}`,
-            },
-          };
-        });
+        const items = [
+          ...targetApps.map((appPath) => {
+            const appName = getFileOrDirName(appPath);
+
+            return {
+              title: appName,
+              subtitle: appPath,
+              arg: appPath,
+              icon: {
+                path: `${__dirname}${sep}icons${sep}${getIcon(appName)}`,
+              },
+              variables: {
+                action: "open",
+              },
+            };
+          }),
+          ...configItems,
+        ];
 
         resolve({
           items,

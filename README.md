@@ -8,15 +8,28 @@ Demo on mac:
 
 ## Installation
 
+1. Install by npm
+
 ```
 $ npm i -g arvis-app-launcher-plugin
 ```
+
+2. Cache program icons by typing below command in Arvis. 
+
+(Only supported on `mac` currently)
+
+```
+@cache/arvis-app-launcher-plugin
+```
+
 
 ## Config
 
 You can edit this plugin's config.
 
 You can open the config file by typing or copy and paste `@config/arvis-app-launcher-plugin` to Arvis.
+
+And type `@cache/arvis-app-launcher-plugin`
 
 ### applicationFolder
 
@@ -42,7 +55,7 @@ default value: `3`
 
 Sets the depth to explore
 
-In macos, it is fixed by 1 to avoid to explore in App file.
+In macos, it is fixed by `1` to avoid to explore in App file.
 
 ### concurrency
 
@@ -61,3 +74,7 @@ This plugin uses below icon sources
 ## To do
 
 - [ ] Write application icon caching logic. It depends on OS.
+
+* macos (O)
+* windows (X)
+* linux (X)

@@ -1,31 +1,61 @@
-const plistParser = require("plist");
+const fs = require("fs");
+const fse = require("fs-extra");
+const fileIcon = require("file-icon");
+const _ = require("lodash");
+const bundleId = require("bundle-id");
+const arvish = require("arvish");
 
-const getIcon = () => {
+const getIcon = (appName) => {
+  if (arvish.getConfig().get("setting").initialCaching) {
+    return `${appName}.app.png`;
+  }
+
   return "icon.png";
 };
 
-// * Need method to import icns to png format
+const cacheIcon = async () => {
+  try {
+    const inApplicationFolder = await fse.readdir("/Applications");
+    const apps = _.filter(inApplicationFolder, (appName) =>
+      appName.endsWith(".app")
+    );
 
-// const cacheIcon = async () => {
-//   const inApplicationFolder = await fse.readdir("/Applications");
-//   const apps = _.filter(inApplicationFolder, (appName) =>
-//     appName.endsWith(".app")
-//   );
+    const appBundleIds = await Promise.allSettled(
+      apps.map(async (appName) => {
+        return {
+          appName,
+          bundleId: await bundleId(appName),
+        };
+      })
+    );
 
-//   const targetApps = _.filter(apps, (appName) =>
-//     appName.toLowerCase().startsWith(inputStr.toLowerCase())
-//   );
+    const appBundleIdsSuccess = appBundleIds
+      .filter((item) => item.status === "fulfilled")
+      .map((item) => item.value);
 
-//   await Promise.all(
-//     targetApps.map(async (appName) => {
-//       const plist = plistParser.parse(
-//         await fse.readFile(`/Applications/${appName}/Info.plist`)
-//       );
+    const buffers = await fileIcon.buffer(
+      appBundleIdsSuccess.map((item) => item.bundleId),
+      { size: 64 }
+    );
 
-//       const iconName = plist.CFBundleIconName;
-//       const iconPath = `/Applications/${appName}/Resources/${iconName}.icns`;
-//     })
-//   );
-// };
+    let idx = 0;
 
-module.exports = { getIcon };
+    buffers.forEach((buffer) => {
+      fs.writeFileSync(
+        `icons/${appBundleIdsSuccess[idx++].appName}.png`,
+        buffer
+      );
+    });
+  } catch (err) {
+    // skip error
+  }
+
+  arvish
+    .getConfig()
+    .set("setting", {
+      ...arvish.getConfig().get("setting"),
+      initialCaching: true,
+    });
+};
+
+module.exports = { getIcon, cacheIcon };

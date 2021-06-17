@@ -6,15 +6,41 @@
     "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
     "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "webAddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "enabled": true,
     "main": "index.js",
     "actions": [
         {
+            "type": "cond",
             "modifiers": "normal",
-            "type": "script",
-            "script": "node open.js '{query}'"
+            "if": {
+                "cond": "{var:action} != 'cache'",
+                "actions": {
+                    "then": [
+                        {
+                            "modifiers": "normal",
+                            "type": "script",
+                            "script": "node open.js '{query}'"
+                        }
+                    ],
+                    "else": [
+                        {
+                            "modifiers": "normal",
+                            "type": "script",
+                            "script": "node cacheIcon.js",
+                            "actions": [
+                                {
+                                    "type": "notification",
+                                    "modifiers": "normal",
+                                    "title": "Caching complete!",
+                                    "text": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
