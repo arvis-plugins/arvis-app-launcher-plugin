@@ -1,4 +1,5 @@
 # arvis-app-launcher-plugin
+[![CodeFactor](https://www.codefactor.io/repository/github/jopemachine/arvis-app-launcher-plugin/badge)](https://www.codefactor.io/repository/github/jopemachine/arvis-app-launcher-plugin)
 [![NPM download total](https://img.shields.io/npm/dt/arvis-app-launcher-plugin)](http://badge.fury.io/js/arvis-app-launcher-plugin)
 [![NPM version](https://badge.fury.io/js/arvis-app-launcher-plugin.svg)](http://badge.fury.io/js/arvis-app-launcher-plugin)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
