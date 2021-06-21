@@ -7,7 +7,7 @@ const { getIcon: getDarwinIcon } = require("./darwin");
 const { getIcon: getLinuxIcon } = require("./linux");
 require("./init");
 
-const conf = arvish.getConfig().get("setting");
+const conf = arvish.config.get("setting");
 const sep = path.sep;
 
 const getIcon =
@@ -45,7 +45,7 @@ const getPluginItem = async ({ inputStr }) => {
       command: "@config/arvis-app-launcher-plugin",
       title: "Open config file of arvis-app-launcher-plugin",
       subtitle: "@config/arvis-app-launcher-plugin",
-      arg: arvish.getConfig().path,
+      arg: arvish.config.path,
       variables: {
         action: "open",
       },

@@ -6,7 +6,7 @@ const bundleId = require("bundle-id");
 const arvish = require("arvish");
 
 const getIcon = (appName) => {
-  if (arvish.getConfig().get("setting").initialCaching) {
+  if (arvish.config.get("setting").initialCaching) {
     return `${appName}.app.png`;
   }
 
@@ -51,9 +51,9 @@ const cacheIcon = async () => {
   }
 
   arvish
-    .getConfig()
+    .config
     .set("setting", {
-      ...arvish.getConfig().get("setting"),
+      ...arvish.config.get("setting"),
       initialCaching: true,
     });
 };

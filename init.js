@@ -1,6 +1,6 @@
 const arvish = require("arvish");
 
-if (!arvish.getConfig().has("setting")) {
+if (!arvish.config.has("setting")) {
   const defaultConfig = {
     applicationFolder: {
       win32: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
@@ -11,5 +11,5 @@ if (!arvish.getConfig().has("setting")) {
     initialCaching: false,
   };
 
-  arvish.getConfig().set("setting", defaultConfig);
+  arvish.config.set("setting", defaultConfig);
 }
