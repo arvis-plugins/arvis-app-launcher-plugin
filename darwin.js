@@ -14,6 +14,7 @@ const getIcon = (appName) => {
 };
 
 const cacheIcon = async () => {
+  arvish.cache
   try {
     const inApplicationFolder = await fse.readdir("/Applications");
     const apps = _.filter(inApplicationFolder, (appName) =>
@@ -40,9 +41,13 @@ const cacheIcon = async () => {
 
     let idx = 0;
 
+    if (!(await fse.pathExists(`${arvish.env.cache}/icons`))) {
+      await fse.mkdir(`${arvish.env.cache}/icons`);
+    }
+
     buffers.forEach((buffer) => {
       fs.writeFileSync(
-        `icons/${appBundleIdsSuccess[idx++].appName}.png`,
+        `${arvish.env.cache}/icons/${appBundleIdsSuccess[idx++].appName}.png`,
         buffer
       );
     });

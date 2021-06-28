@@ -14,23 +14,21 @@ const getIcon =
   process.platform === "darwin"
     ? getDarwinIcon
     : process.platform === "win32"
-    ? getWin32Icon
-    : getLinuxIcon;
+      ? getWin32Icon
+      : getLinuxIcon;
 
 const getTargetPath = (inputStr) => {
   switch (process.platform) {
     case "win32":
-      return `${
-        conf.applicationFolder[process.platform]
-      }${sep}**${sep}*${inputStr}*`
+      return `${conf.applicationFolder[process.platform]
+        }${sep}**${sep}*${inputStr}*`
         .split("\\")
         .join("/");
     case "darwin":
       return `${conf.applicationFolder[process.platform]}${sep}*${inputStr}*`;
     case "linux":
-      return `${
-        conf.applicationFolder[process.platform]
-      }${sep}**${sep}*${inputStr}*`;
+      return `${conf.applicationFolder[process.platform]
+        }${sep}**${sep}*${inputStr}*`;
   }
 };
 
@@ -52,13 +50,13 @@ const getPluginItem = async ({ inputStr }) => {
     },
     process.platform === "darwin"
       ? {
-          command: "@cache/arvis-app-launcher-plugin",
-          title: "Cache app icons of arvis-app-launcher-plugin",
-          subtitle: "@cache/arvis-app-launcher-plugin",
-          variables: {
-            action: "cache",
-          },
-        }
+        command: "@cache/arvis-app-launcher-plugin",
+        title: "Cache app icons of arvis-app-launcher-plugin",
+        subtitle: "@cache/arvis-app-launcher-plugin",
+        variables: {
+          action: "cache",
+        },
+      }
       : undefined,
   ];
 
@@ -77,9 +75,9 @@ const getPluginItem = async ({ inputStr }) => {
     const getFileOrDirName = (filePath) => {
       const name = filePath.endsWith("/")
         ? filePath
-            .substring(0, filePath.length - 1)
-            .split("/")
-            .pop()
+          .substring(0, filePath.length - 1)
+          .split("/")
+          .pop()
         : filePath.split("/").pop();
 
       if (name.includes(".")) {
@@ -102,7 +100,9 @@ const getPluginItem = async ({ inputStr }) => {
               subtitle: appPath,
               arg: appPath,
               icon: {
-                path: `${__dirname}${sep}icons${sep}${getIcon(appName)}`,
+                path: arvish.config.get("setting").initialCaching ?
+                  `${arvish.env.cache}${sep}icons${sep}${getIcon(appName)}` :
+                  `${__dirname}${sep}icon.png`,
               },
               variables: {
                 action: "open",

@@ -12,6 +12,8 @@ Demo on mac:
 
 ![](./demo.gif)
 
+![](./demo2.png)
+
 ## Installation
 
 1. Install by npm
