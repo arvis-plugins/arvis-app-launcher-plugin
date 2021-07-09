@@ -33,11 +33,11 @@ $ npm i -g arvis-app-launcher-plugin
 
 ## Config
 
-You can edit this plugin's config.
+You can edit this plugin's config on `User config table` like below.
 
-You can open the config file by typing or copy and paste `@config/arvis-app-launcher-plugin` to Arvis.
+![](./config.png)
 
-And type `@cache/arvis-app-launcher-plugin`
+And type `@cache/arvis-app-launcher-plugin` to cache icon images (mac os only)
 
 ### applicationFolder
 
