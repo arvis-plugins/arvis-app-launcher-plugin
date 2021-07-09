@@ -5,9 +5,8 @@ const arvish = require("arvish");
 const { getIcon: getWin32Icon } = require("./win32");
 const { getIcon: getDarwinIcon } = require("./darwin");
 const { getIcon: getLinuxIcon } = require("./linux");
-require("./init");
+const conf = require("./conf");
 
-const conf = arvish.config.get("setting");
 const sep = path.sep;
 
 const getIcon =
@@ -39,15 +38,6 @@ const getPluginItem = async ({ inputStr }) => {
     };
 
   const configItems = [
-    {
-      command: "@config/arvis-app-launcher-plugin",
-      title: "Open config file of arvis-app-launcher-plugin",
-      subtitle: "@config/arvis-app-launcher-plugin",
-      arg: arvish.config.path,
-      variables: {
-        action: "open",
-      },
-    },
     process.platform === "darwin"
       ? {
         command: "@cache/arvis-app-launcher-plugin",
@@ -100,7 +90,7 @@ const getPluginItem = async ({ inputStr }) => {
               subtitle: appPath,
               arg: appPath,
               icon: {
-                path: arvish.config.get("setting").initialCaching ?
+                path: conf.cachingComplete ?
                   `${arvish.env.cache}${sep}icons${sep}${getIcon(appName)}` :
                   `${__dirname}${sep}icon.png`,
               },

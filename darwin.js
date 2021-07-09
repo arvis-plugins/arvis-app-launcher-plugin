@@ -4,9 +4,10 @@ const fileIcon = require("file-icon");
 const _ = require("lodash");
 const bundleId = require("bundle-id");
 const arvish = require("arvish");
+const conf = require("./conf");
 
 const getIcon = (appName) => {
-  if (arvish.config.get("setting").initialCaching) {
+  if (conf.cachingComplete) {
     return `${appName}.app.png`;
   }
 
@@ -59,7 +60,7 @@ const cacheIcon = async () => {
     .config
     .set("setting", {
       ...arvish.config.get("setting"),
-      initialCaching: true,
+      cachingComplete: true,
     });
 };
 
