@@ -1,5 +1,5 @@
 module.exports = {
   applicationFolder: JSON.parse(process.env.applicationFolder),
-  deep: JSON.parse(process.env.deep),
-  cachingComplete: JSON.parse(process.env.cachingComplete),
+  deep: Number(process.env.deep),
+  cachingComplete: Boolean(process.env.cachingComplete),
 };
