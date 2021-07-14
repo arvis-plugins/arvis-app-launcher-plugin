@@ -79,6 +79,14 @@ This plugin uses below icon sources
 
 <a target="_blank" href="https://icons8.com">Image</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
+## Related
+
+- [fast-glob](https://github.com/mrmlnc/fast-glob) - API for this module.
+
+- [arvish](https://github.com/jopemachine/arvish) - Arvis workflow, plugin creator tools
+
+- [other plugins](https://github.com/jopemachine/arvis/blob/master/documents/plugin-links.md)
+
 ## To do
 
 - [ ] Write application icon caching logic. It depends on OS.
