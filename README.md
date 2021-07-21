@@ -10,9 +10,9 @@ Cross platform app launcher plugin for [Arvis](https://github.com/jopemachine/ar
 
 Demo on mac: 
 
-![](./demo.gif)
+![](./media/demo.gif)
 
-![](./demo2.png)
+![](./media/demo2.png)
 
 ## Installation
 
@@ -35,7 +35,7 @@ $ npm i -g arvis-app-launcher-plugin
 
 You can edit this plugin's config on `User config table` like below.
 
-![](./config.png)
+![](./media/config.png)
 
 And type `@cache/arvis-app-launcher-plugin` to cache icon images (mac os only)
 
