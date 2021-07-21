@@ -4,13 +4,13 @@ const arvish = require("arvish");
 const path = require("path");
 const os = require("os");
 const fg = require("fast-glob");
-const { extractIcon } = require("@bitdisaster/exe-icon-extractor");
+// const { extractIcon } = require("@bitdisaster/exe-icon-extractor");
 const conf = require("./conf");
 
 const sep = path.sep;
 
 const getIcon = (appName) => {
-  if (conf.cachingComplete) {
+  if (arvish.config.has('cachingComplete')) {
     return `${appName}.app.png`;
   }
 

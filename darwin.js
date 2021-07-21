@@ -4,10 +4,9 @@ const fileIcon = require("file-icon");
 const _ = require("lodash");
 const bundleId = require("bundle-id");
 const arvish = require("arvish");
-const conf = require("./conf");
 
 const getIcon = (appName) => {
-  if (conf.cachingComplete) {
+  if (arvish.config.has('cachingComplete')) {
     return `${appName}.app.png`;
   }
 

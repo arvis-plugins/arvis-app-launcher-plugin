@@ -90,7 +90,7 @@ const getPluginItem = async ({ inputStr }) => {
               subtitle: appPath,
               arg: appPath,
               icon: {
-                path: conf.cachingComplete ?
+                path: arvish.config.has('cachingComplete') ?
                   `${arvish.env.cache}${sep}icons${sep}${getIcon(appName)}` :
                   `${__dirname}${sep}icon.png`,
               },
