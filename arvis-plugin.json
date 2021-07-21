@@ -6,15 +6,21 @@
     "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
     "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "webAddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "enabled": true,
     "main": "index.js",
     "variables": {
-        "applicationFolder": {
-            "win32": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs",
-            "darwin": "/Applications",
-            "linux": "/usr/share/applications"
+        "applicationFolders": {
+            "win32": ["C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"],
+            "darwin": ["/Applications"],
+            "linux": [
+                "/usr/share/applications",
+                "/usr/local/share/applications",
+                "/var/lib/snapd/desktop/applications/",
+                "/var/lib/flatpak/exports/share/applications/",
+                "~/.local/share/applications/"
+            ]
         },
         "deep": 3,
         "cachingComplete": false

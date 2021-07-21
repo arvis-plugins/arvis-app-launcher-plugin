@@ -16,19 +16,19 @@ const getIcon =
       ? getWin32Icon
       : getLinuxIcon;
 
-const getTargetPath = (inputStr) => {
-  switch (process.platform) {
-    case "win32":
-      return `${conf.applicationFolder[process.platform]
-        }${sep}**${sep}*${inputStr}*`
-        .split("\\")
-        .join("/");
-    case "darwin":
-      return `${conf.applicationFolder[process.platform]}${sep}*${inputStr}*`;
-    case "linux":
-      return `${conf.applicationFolder[process.platform]
-        }${sep}**${sep}*${inputStr}*`;
-  }
+const getTargetPaths = (inputStr) => {
+  return conf.applicationFolders[process.platform].map((applicationPath) => {
+    switch (process.platform) {
+      case "win32":
+        return `${applicationPath}${sep}**${sep}*${inputStr}*`
+          .split("\\")
+          .join("/");
+      case "darwin":
+        return `${applicationPath}${sep}*${inputStr}*`;
+      case "linux":
+        return `${applicationPath}${sep}**${sep}*${inputStr}*`;
+    }
+  });
 };
 
 const getPluginItem = async ({ inputStr }) => {
@@ -77,9 +77,9 @@ const getPluginItem = async ({ inputStr }) => {
       }
     };
 
-    const targetPath = getTargetPath(inputStr);
+    const targetPaths = getTargetPaths(inputStr);
 
-    fg(targetPath, globOpts)
+    fg(targetPaths, globOpts)
       .then((targetApps) => {
         const items = [
           ...targetApps.map((appPath) => {

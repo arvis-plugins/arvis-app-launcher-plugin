@@ -39,17 +39,23 @@ You can edit this plugin's config on `User config table` like below.
 
 And type `@cache/arvis-app-launcher-plugin` to cache icon images (mac os only)
 
-### applicationFolder
+### applicationFolders
 
 type: `object`
 
 default value: 
 
-* windows: `C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs`
+* windows: [`C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs`]
 
-* macos: `/Applications`
+* macos: [`/Applications`]
 
-* linux: `/usr/share/applications`
+* linux: [
+    `/usr/share/applications`,
+    `/usr/local/share/applications`,
+    `/var/lib/snapd/desktop/applications/`,
+    `/var/lib/flatpak/exports/share/applications/`,
+    `~/.local/share/applications/`
+]
 
 Change the path you want to assign to explore.
 
