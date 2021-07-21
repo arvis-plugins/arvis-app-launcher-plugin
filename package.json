@@ -1,6 +1,6 @@
 {
   "name": "arvis-app-launcher-plugin",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "App launcher plugin for Arvis",
   "main": "index.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "open": "^8.2.0"
   },
   "optionalDependencies": {
+    "@bitdisaster/exe-icon-extractor": "^1.0.10",
     "bundle-id": "^2.1.0",
     "file-icon": "^4.0.0"
   }

@@ -38,7 +38,7 @@ const getPluginItem = async ({ inputStr }) => {
     };
 
   const configItems = [
-    process.platform === "darwin"
+    process.platform !== "linux"
       ? {
         command: "@cache/arvis-app-launcher-plugin",
         title: "Cache app icons of arvis-app-launcher-plugin",

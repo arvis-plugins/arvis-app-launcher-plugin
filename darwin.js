@@ -15,7 +15,6 @@ const getIcon = (appName) => {
 };
 
 const cacheIcon = async () => {
-  arvish.cache
   try {
     const inApplicationFolder = await fse.readdir("/Applications");
     const apps = _.filter(inApplicationFolder, (appName) =>
@@ -52,16 +51,12 @@ const cacheIcon = async () => {
         buffer
       );
     });
-  } catch (err) {
-    // skip error
-  }
 
-  arvish
-    .config
-    .set("setting", {
-      ...arvish.config.get("setting"),
-      cachingComplete: true,
-    });
+    arvish.config.set("cachingComplete", true);
+
+  } catch (err) {
+    console.log('Error occured', err);
+  }
 };
 
 module.exports = { getIcon, cacheIcon };

@@ -1,5 +1,7 @@
+const arvish = require('arvish');
+
 module.exports = {
   applicationFolders: JSON.parse(process.env.applicationFolders),
   deep: Number(process.env.deep),
-  cachingComplete: process.env.cachingComplete === "true",
+  cachingComplete: arvish.config.get('cachingComplete')
 };

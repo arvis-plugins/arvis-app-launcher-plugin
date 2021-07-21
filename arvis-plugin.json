@@ -6,7 +6,7 @@
     "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
     "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "webAddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
     "enabled": true,
     "main": "index.js",
