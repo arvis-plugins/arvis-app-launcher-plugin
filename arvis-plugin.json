@@ -5,9 +5,9 @@
     "description": "App launcher plugin for Arvis",
     "defaultIcon": "icon.png",
     "name": "arvis-app-launcher-plugin",
-    "readme": "https://github.com/jopemachine/arvis-app-launcher-plugin",
-    "version": "0.1.5",
-    "webAddress": "https://github.com/jopemachine/arvis-app-launcher-plugin",
+    "readme": "",
+    "version": "0.1.6",
+    "webAddress": "https://github.com/arvis-plugins/arvis-app-launcher-plugin",
     "enabled": true,
     "main": "index.js",
     "variables": {
