@@ -15,7 +15,12 @@ const getIcon = (appName) => {
 
 const cacheIcon = async () => {
   try {
-    const inApplicationFolder = await fse.readdir("/Applications");
+    const inApplicationFolder = [
+      ...await fse.readdir("/Applications"),
+      ...await fse.readdir("/System/Applications"),
+      ...await fse.readdir("/System/Applications/Utilities"),
+    ];
+
     const apps = _.filter(inApplicationFolder, (appName) =>
       appName.endsWith(".app")
     );

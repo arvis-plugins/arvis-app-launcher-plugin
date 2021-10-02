@@ -1,6 +1,6 @@
 {
   "name": "arvis-app-launcher-plugin",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "App launcher plugin for Arvis",
   "main": "index.js",
   "scripts": {

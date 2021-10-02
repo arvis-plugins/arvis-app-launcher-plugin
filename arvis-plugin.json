@@ -1,60 +1,66 @@
 {
-    "$schema": "https://raw.githubusercontent.com/jopemachine/arvis-extension-validator/master/plugin-schema.json",
-    "category": "Productivity",
-    "creator": "jopemachine",
-    "description": "App launcher plugin for Arvis",
-    "defaultIcon": "icon.png",
-    "name": "arvis-app-launcher-plugin",
-    "readme": "",
-    "version": "0.1.6",
-    "webAddress": "https://github.com/arvis-plugins/arvis-app-launcher-plugin",
-    "enabled": true,
-    "main": "index.js",
-    "variables": {
-        "applicationFolders": {
-            "win32": ["C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"],
-            "darwin": ["/Applications"],
-            "linux": [
-                "/usr/share/applications",
-                "/usr/local/share/applications",
-                "/var/lib/snapd/desktop/applications/",
-                "/var/lib/flatpak/exports/share/applications/",
-                "~/.local/share/applications/"
-            ]
-        },
-        "deep": 3
+  "$schema": "https://raw.githubusercontent.com/jopemachine/arvis-extension-validator/master/plugin-schema.json",
+  "category": "Productivity",
+  "creator": "jopemachine",
+  "description": "App launcher plugin for Arvis",
+  "defaultIcon": "icon.png",
+  "name": "arvis-app-launcher-plugin",
+  "readme": "",
+  "version": "0.1.7",
+  "webAddress": "https://github.com/arvis-plugins/arvis-app-launcher-plugin",
+  "enabled": true,
+  "main": "index.js",
+  "variables": {
+    "applicationFolders": {
+      "win32": [
+        "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
+      ],
+      "darwin": [
+        "/Applications",
+        "/System/Applications/Utilities",
+        "/System/Applications"
+      ],
+      "linux": [
+        "/usr/share/applications",
+        "/usr/local/share/applications",
+        "/var/lib/snapd/desktop/applications/",
+        "/var/lib/flatpak/exports/share/applications/",
+        "~/.local/share/applications/"
+      ]
     },
-    "actions": [
-        {
-            "type": "cond",
-            "modifiers": "normal",
-            "if": {
-                "cond": "{var:action} != 'cache'",
-                "actions": {
-                    "then": [
-                        {
-                            "modifiers": "normal",
-                            "type": "script",
-                            "script": "node open.js '{query}'"
-                        }
-                    ],
-                    "else": [
-                        {
-                            "modifiers": "normal",
-                            "type": "script",
-                            "script": "node cacheIcon.js",
-                            "actions": [
-                                {
-                                    "type": "notification",
-                                    "modifiers": "normal",
-                                    "title": "Caching complete!",
-                                    "text": ""
-                                }
-                            ]
-                        }
-                    ]
-                }
+    "deep": 3
+  },
+  "actions": [
+    {
+      "type": "cond",
+      "modifiers": "normal",
+      "if": {
+        "cond": "{var:action} != 'cache'",
+        "actions": {
+          "then": [
+            {
+              "modifiers": "normal",
+              "type": "script",
+              "script": "node open.js '{query}'"
             }
+          ],
+          "else": [
+            {
+              "modifiers": "normal",
+              "type": "script",
+              "script": "node cacheIcon.js",
+              "actions": [
+                {
+                  "type": "notification",
+                  "modifiers": "normal",
+                  "title": "Caching complete!",
+                  "text": ""
+                }
+              ]
+            }
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
